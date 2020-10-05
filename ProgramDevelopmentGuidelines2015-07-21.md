@@ -612,10 +612,7 @@ In JUnit 3, due to the lack of `@Test`, test methods have to prefix with "Test".
 
 Many test methods naming conventions were invented [^Osh05] [^Kum14], the common goal is to communicate the intent. Here are some examples: `enquiry_SHOULD_log_request_WHEN_invoked`, `enquiry_SHOULD_split_multiple_venue_codes_delimited_by_comma_WHEN_response_code_success_returned`, `enquiry_SHOULD_rethrow_exception_WHEN_exception_from_cmbcsCore_caught`.
 
-The article by Roy Osherove also discussed how to name variables in test method to make it more
-readable. [^Osh05]
-
-
+The article by Roy Osherove also discussed how to name variables in test method to make it more readable. [^Osh05]
 
 
 
