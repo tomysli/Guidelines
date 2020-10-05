@@ -323,6 +323,55 @@ From *Clean Code: A Handbook of Agile Software Craftsmanship*, [^Mar09] p.18.
 
 
 
+## C2 - Use enum instead of constants to define a finite set of values
+
+Since Java 1.4 doesn’t have enums, constants are used to define a finite set of values:
+
+```java
+public static final int MONDAY = 1;
+public static final int TUESDAY = 2;
+public static final int WEDNESDAY = 3;
+public static final int THURSDAY = 4;
+public static final int FRIDAY = 5;
+public static final int SATURDAY = 6;
+public static final int SUNDAY = 7;
+```
+
+
+
+**Do use enums in Java 5**
+
+Now that enums have been added to the language (since Java 5), don’t keep using the old trick of constants. The meaning of ints can get lost. The meaning of enums cannot, because they belong to an
+enumeration that is named.
+
+If integer values need to map to the enums, declare the enums with constructor for mapping the values:
+
+```java
+public static enum DayOfWeek {
+  MONDAY(1),
+  TUESDAY(2),
+  WEDNESDAY(3),
+  THURSDAY(4),
+  FRIDAY(5),
+  SATURDAY(6),
+  SUNDAY(7);
+
+  DayOfWeek(int value) {
+    this.value = value;
+  }
+
+  public static DayOfWeek fromValue(int value) {
+    for (DayOfWeek d : DayOfWeek.values()) {
+      if (d.value == value)
+        return d;
+    }
+    throw new IllegalArgumentException(“Invalid day of week value=” + value);  
+  }
+
+  public final int value;
+}
+```
+
 
 
 
