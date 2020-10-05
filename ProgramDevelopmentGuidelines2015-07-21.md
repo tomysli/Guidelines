@@ -298,6 +298,33 @@ However, think twice when you are going to spend a few hours or so to do an opti
 
 
 
+## C1 - Use intention-revealing names
+
+**The name should tell you why it exists, what it does, and how it is used**
+
+From *Clean Code: A Handbook of Agile Software Craftsmanship*, [^Mar09] p.18.
+
+> Choosing good names takes time but saves more than it takes. So take care with your names and change them when you find better ones. Everyone who reads your code (including you) will be happier if you do.
+>
+> The name of a variable, function, or class, should answer all the big questions. It **should tell you why it exists, what it does, and how it is used**. If a name requires a comment, then the name does not reveal its intent.
+>
+> ```java
+> int d; // elapsed time in days
+> ```
+>
+> The name `d` reveals nothing. It does not evoke a sense of elapsed time, nor of days. We should choose a name that specifies what is being measured and the unit of that measurement:
+>
+> ```java
+> int elapsedTimeInDays;
+> int daysSinceCreation;
+> int daysSinceModification;
+> int fileAgeInDays;
+> ```
+
+
+
+
+
 
 
 ## References:
@@ -317,5 +344,7 @@ However, think twice when you are going to spend a few hours or so to do an opti
 [^Knu74]: Donald E. Knuth, “Computer programming as an art”, ACM, 1974. [link](https://dl.acm.org/doi/10.1145/361604.361612)
 
 [^Mar03]: Agile Software Development: Principles, Patterns and Practices, Robert C. Martin, Pearson Education, 2003.
+
+[^Mar09]: Clean Code: A Handbook of Agile Software Craftsmanship, Robert C. Martin, Pearson Education, 2009.
 
 [^SOLID]: Wikipedia, 2014-12-19. [link](http://en.wikipedia.org/wiki/SOLID_%28object-oriented_design%29)
