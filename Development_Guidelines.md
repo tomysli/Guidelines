@@ -174,11 +174,13 @@ However, you would not do it extensively for every class used in your modules, y
 
 More likely is when your code need some bug fix or enhancement, often require adding methods or parameters so that it could not be done by just injecting another implementation. Ask yourself, how many interfaces at your code base having only one implementation? How often you need to fix the very one implementation and that change propagates back to its interface? Unstable interfaces are only burdens for maintenance.
 
+
+
 **Modern mock framework don’t need interface to mock**
 
-Another reason for having interfaces is for testability. Before the invention of modern mocking library, interfaces are required to implement mock objects, for example, [jMock](http://jmock.org/) can only mock interfaces. However, the invention of modern mocking library like Mockito make concrete class mocking possible, thus interfaces should be exist solely for testability.
+Another reason for having interfaces is for testability. Before the invention of modern mocking library, interfaces are required to implement mock objects, for example, [jMock](http://jmock.org/) can only mock interfaces. However, the invention of modern mocking library like [Mockito](https://site.mockito.org/) make concrete class mocking possible, thus interfaces should NOT be exist solely for testability.
 
-For more about when not to apply this principle, see OCP in the section “D5 Be SOLID”.
+For more about when not to apply this principle, see OCP in the section "D5 - Be SOLID".
 
 
 
@@ -192,15 +194,17 @@ SOLID is a mnemonic acronym introduced by Michael Feathers [^SOLID] for the “f
 
 SRP requires that a class should have only one responsibility (reason to change). For example, if a class contains both business rules and persistence control, it has two responsibilities, hence violating the SRP.
 
+My experience is try to conform SRP as much as possible, so that to make changes "orthogonal", or in other words, "independent". The other 4 principles might need more consideration about their tradeoffs when applied, but SRP is almost always the way to go.
+
 
 
 **Open-Closed Principle (OCP)**
 
-OCP requires that software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification. In general it is an application of “programming to an interface, not an implementation”
+OCP requires that software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification. In general it is an application of "programming to an interface, not an implementation"
 
-However, as Martin pointed out in his book:
+However, as Martin pointed out in his book (emphasis mine):
 
-> ...**conforming to the OCP is expensive**. It takes development time and effort to create the appropriate abstractions. Those abstractions also increase the complexity of the software design. There is a limit to the amount of abstraction that that developers can afford. **Clearly, we want to limit the application of the OCP to changes that are likely**. How do we know which changes are likely? We do the **appropriate research**, we ask the **appropriate questions**, and we use our experience and common sense. And after all that, we **wait until the changes happen!**
+> ...conforming to the **OCP is expensive**. It takes development time and effort to create the appropriate abstractions. Those abstractions also **increase the complexity** of the software design. There is a limit to the amount of abstraction that that developers can afford. Clearly, we want to **limit the application of the OCP to changes that are likely**. How do we know which changes are likely? We do the appropriate **research**, we ask the appropriate **questions**, and we use our experience and common sense. And after all that, we **wait until the changes happen!**
 
 Source [^Mar03] p.105
 
