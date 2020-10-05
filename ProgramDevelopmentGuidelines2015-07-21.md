@@ -65,9 +65,17 @@ in their “maintenance mode”) within a tight timeframe.
 To some people who understand the craft of programming so well, programming is a way to
 communicate one’s thoughts through code:
 
-> Computer language is not just a way of getting a computer to perform operations but rather that it is a **novel formal medium for expressing ideas about methodology**. Thus, **programs must be written for people to read**, and only incidentally for machines to execute.
+> Our design of this introductory computer-science subject reflects two major concerns. First, we want to establish the idea that a computer language is not just a way of getting a computer to perform operations but rather that it is a **novel formal medium for expressing ideas about methodology**. Thus, **programs must be written for people to read**, and only incidentally for machines to execute. Second, we believe that the essential material to be addressed by a subject at this level is not the syntax of particular programming-language constructs, nor clever algorithms for computing particular functions efficiently, nor even the mathematical analysis of algorithms and the foundations of computing, but rather the **techniques** used to control the **intellectual complexity** of **large software systems**.
+>
+> Our goal is that students who complete this subject should have a good feel for the **elements of style** and the **aesthetics** of programming. They should have command of the major techniques for controlling complexity in a large system. They should be capable of reading a 50-page-long program, if it is written in an exemplary style. They should know what not to read, and what they need not understand at any moment. They should **feel secure about modifying a program**, retaining the spirit and style of the original author.
+>
+> These skills are by no means unique to computer programming. The techniques we teach and draw upon are common to all of engineering design. We **control complexity by building abstractions** that hide details when appropriate. We control complexity by establishing conventional interfaces that enable us to construct systems by combining standard, well-understood pieces in a "mix and match" way. We control complexity by establishing new languages for describing a design, each of which emphasizes particular aspects of the design and deemphasizes others.
+>
+> Underlying our approach to this subject is our conviction that **"computer science" is not a science** and that **its significance has little to do with computers**. The computer revolution is a revolution in **the way we think** and in **the way we express what we think**. The essence of this change is the emergence of what might best be called *procedural epistemology* -- the study of the structure of knowledge from an imperative point of view, as opposed to the more declarative point of view taken by classical mathematical subjects. Mathematics provides a framework for dealing precisely with notions of "what is." Computation provides a framework for dealing precisely with notions of "how to."
 
-From The Structure and Interpretation of Computer Programs, Preface to the First Edition [^AS96]
+(emphasis mine), from *The Structure and Interpretation of Computer Programs*, Preface to the First Edition [^AS96]
+
+
 
 **Good programmers write code that humans can understand**
 
@@ -615,7 +623,7 @@ readable. [^Osh05]
 
 [^Ach13]: Test-Driven Development with Mockito, Sujoy Acharya, Packt Publishing, 2013.
 
-[^AS96]: Structure and Interpretation of Computer Programs (Second Edition), Harold Abelson and Gerald Jay Sussman with Julie Sussman, The MIT Press, 1996. [link](http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-7.html#%_chap_Temp_4)
+[^AS96]: Structure and Interpretation of Computer Programs (Second Edition), Harold Abelson and Gerald Jay Sussman with Julie Sussman, The MIT Press, 1996. [link](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-7.html#%_chap_Temp_4)
 
 [^DHLMRR08]: Robertson, Adrenaline Junkies and Template Zombies: Understanding Patterns of Project Behavior, Tom DeMarco, Peter Hruschka, Tim Lister, Steve McMenamin, James Robertson, Suzanne Dorset House, 2008.
 
