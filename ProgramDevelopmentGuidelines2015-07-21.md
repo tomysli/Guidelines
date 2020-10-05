@@ -474,6 +474,76 @@ pp.106-107.
 
 
 
+## C5 - Don't return `null`
+
+**A billion-dollar mistake**
+
+If methods don’t return null, you don’t need to check for null, nor forget to check for null, hence no
+`NullPointerException`. Tony Hoare apologized for inventing the null reference in 1965 and calls it “**My billion-dollar mistake**” . [^Hoa09]
+
+
+
+**The problems of returning `null`**
+
+The following is an excerpt from *Clean Code: A Handbook of Agile Software Craftsmanship*, [^Mar09] pp.110-111.
+
+> I think that any discussion about error handling should include mention of the things we do that invite errors. The first on the list is returning `null`. I can’t begin to count the number of applications I’ve seen in which nearly every other line was a check for null. Here is some example code:
+>
+> ```java
+> public void registerItem(Item item) {
+>   if (item != null) {
+>     ItemRegistry registry = peristentStore.getItemRegistry();
+>     if (registry != null) {
+>       Item existing = registry.getItem(item.getID());
+>       if (existing.getBillingPeriod().hasRetailOwner()) {
+>         existing.register(item);
+>       }
+>     }
+>   }
+> }
+> ```
+>
+> If you work in a code base with code like this, it might not look all that bad to you, but **it is bad!** When we return `null`, we are essentially creating work for ourselves and foisting problems upon our callers. **All it takes is one missing null check to send an application spinning out of control**.
+>
+> Did you notice the fact that there wasn’t a null check in the second line of that nested if statement? What would have happened at runtime if `persistentStore` were `null`? We would have had a `NullPointerException` at runtime, and either someone is catching `NullPointerException` at the top level or they are not. Either way it’s bad. What exactly should you do in response to a `NullPointerException` thrown from the depths of your application?
+>
+> It’s easy to say that the problem with the code above is that it is missing a null check, but in actuality, the problem is that it has too many. **If you are tempted to return null from a method, consider throwing an exception or returning a SPECIAL CASE object instead**. If you are calling a null-returning method from a third-party API, consider wrapping that method with a method that either throws an exception or returns a special case object.
+>
+> In many cases, special case objects are an easy remedy. Imagine that you have code like this:
+>
+> ```java
+> List<Employee> employees = getEmployees();
+> if (employees != null) {
+>   for(Employee e : employees) {
+>     totalPay += e.getPay();
+>   }
+> }
+> ```
+>
+> Right now, `getEmployees` can return `null`, but does it have to? If we change `getEmployee` so that it returns an empty list, we can clean up the code:
+>
+> ```java
+> List<Employee> employees = getEmployees();
+> for(Employee e : employees) {
+>   totalPay += e.getPay();
+> }
+> ```
+>
+> Fortunately, Java has `Collections.emptyList()`, and it returns a predefined immutable list that we can use for this purpose:
+>
+> ```java
+> public List<Employee> getEmployees() {
+>   if( .. there are no employees .. )
+>     return Collections.emptyList();
+> }
+> ```
+>
+> If you code this way, you will minimize the chance of `NullPointerExceptions` and your code will be cleaner.
+>
+> Consider using **Null Object** pattern [^Mar03] p.189, instead of returning `null`. Which is one of the aforementioned SPECIAL CASE object.
+
+
+
 
 
 ## References:
