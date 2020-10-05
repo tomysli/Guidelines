@@ -374,6 +374,76 @@ public static enum DayOfWeek {
 
 
 
+## C3 - Use exceptions rather than return codes
+
+The following is an excerpt from *Clean Code: A Handbook of Agile Software Craftsmanship*, [^Mar09]
+pp.104-105.
+
+> Back in the distant past there were many languages that didn’t have exceptions. In those languages the techniques for handling and reporting errors were limited. You either set an error flag or returned an error code that the caller could check. The code in Listing 7-1 illustrates these approaches.
+>
+> Listing 7-1:
+>
+> ```java
+> DeviceController {
+>   …
+>   public void sendShutDown() {
+>     DeviceHandle handle = getHandle(DEV1);
+>     // Check the state of the device
+>     if (handle != DeviceHandle.INVALID) {
+>       // Save the device status to the record field
+>       retrieveDeviceRecord(handle);
+>       // If not suspended, shut down
+>       if (record.getStatus() != DEVICE_SUSPENDED) {
+>         pauseDevice(handle);
+>         clearDeviceWorkQueue(handle);
+>         closeDevice(handle);
+>       } else {
+>         logger.log("Device suspended. Unable to shut down");
+>       }
+>     } else {
+>       logger.log("Invalid handle for: " + DEV1.toString());
+>     }
+>   }
+>   …
+> }
+> ```
+>
+> The problem with these approaches is that they clutter the caller. The caller must check for errors immediately after the call. Unfortunately, it’s easy to forget. For this reason it is better to throw an exception when you encounter an error. The calling code is cleaner. Its logic is not obscured by error  handling. Listing 7-2 shows the code after we’ve chosen to throw exceptions in methods that can detect errors.
+>
+> Listing 7-2:
+>
+> ```java
+> public class DeviceController {
+>   …
+>   public void sendShutDown() {
+>     try {
+>       tryToShutDown();
+>     } catch (DeviceShutDownError e) {
+>       logger.log(e);
+>     }
+>   }
+> 
+>   private void tryToShutDown() throws DeviceShutDownError {
+>     DeviceHandle handle = getHandle(DEV1);
+>     DeviceRecord record = retrieveDeviceRecord(handle);
+>     pauseDevice(handle);
+>     clearDeviceWorkQueue(handle);
+>     closeDevice(handle);
+>   }
+> 
+>   private DeviceHandle getHandle(DeviceID id) {
+>     …
+>     throw new DeviceShutDownError("Invalid handle for: " + id.toString());
+>     …
+>   }
+>   …
+> }
+> ```
+>
+> Notice how much cleaner it is. This isn’t just a matter of aesthetics. The code is better because two concerns that were tangled, the algorithm for device shutdown and error handling, are now separated. You can look at each of those concerns and understand them independently.
+
+
+
 
 
 ## References:
