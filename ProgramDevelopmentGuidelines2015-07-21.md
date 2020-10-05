@@ -640,7 +640,7 @@ The article by Roy Osherove also discussed how to name variables in test method 
 
 [^JAH00]: Extreme Programming Installed, Ron Jeffries, Ana Anderson, Chet Hendrickson, Addison-Wesley, 2000.
 
-[^JUnitFAQ]: http://junit.org/faq.html
+[^JUnitFAQ]: https://junit.org/junit4/faq.html#organize_1
 
 [^KentBeck]: Wikipedia, 2014-12-19. [link](http://en.wikipedia.org/wiki/Kent_Beck)
 
