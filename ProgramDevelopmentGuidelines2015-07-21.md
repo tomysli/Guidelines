@@ -113,7 +113,7 @@ Tom DeMarco et al put their insight about software design improvement in *Adrena
 
 ## D3 - Favor object composition over class inheritance
 
-This is an excerpt from Design Patterns: Elements of Reusable Object-Oriented Software, [GHJV96] pp.19-20:
+This is an excerpt from Design Patterns: Elements of Reusable Object-Oriented Software, [^GHJV96] pp.19-20:
 
 > **Inheritance breaks encapsulation**
 >
@@ -141,6 +141,22 @@ This is an excerpt from Design Patterns: Elements of Reusable Object-Oriented So
 
 
 
+## D4 - Programming to an interface, not an implementation [^GHJV96] p.18
+
+**Beware of overusing interface**
+
+This is perhaps a more well received concept, for example, the Spring Framework encourage the use of this pattern, it is often to see `@Service` usage examples with `@Service` applied on an interface reference, and use Spring Dependency Injection (DI) to inject an implementation instance. It is flexible when you need another implementation for the interface, just change the declaration in xml file to ask Spring to inject another implementation instance without recompiling the source code, at the cost of an additional interface class.
+
+However, you would not do it extensively for every class used in your modules, you would not create a `Date` interface, so that we can inject another `Date` implementation just in case. (Java SE 8 indeed provides another set of date and time classes implementation, JSR-310)
+
+More likely is when your code need some bug fix or enhancement, often require adding methods or parameters so that it could not be done by just injecting another implementation. Ask yourself, how many interfaces at your code base having only one implementation? How often you need to fix the very one implementation and that change propagates back to its interface? Unstable interfaces are only burdens for maintenance.
+
+**Modern mock framework don’t need interface to mock**
+
+Another reason for having interfaces is for testability. Before the invention of modern mocking library, interfaces are required to implement mock objects, for example, [jMock](http://jmock.org/) can only mock interfaces. However, the invention of modern mocking library like Mockito make concrete class mocking possible, thus interfaces should be exist solely for testability.
+
+For more about when not to apply this principle, see OCP in the section “D5 Be SOLID”.
+
 
 
 
@@ -155,4 +171,6 @@ This is an excerpt from Design Patterns: Elements of Reusable Object-Oriented So
 [^Dij70]: The 'premature optimization is evil' myth, Joe Duffy, 2010. [link](http://joeduffyblog.com/2010/09/06/the-premature-optimization-is-evil-myth/)
 
 [^FBBOR99]: Refactoring: Improving the Design of Existing Code, Martin Fowler et al., Addison-Wesley, 1999
+
+[^GHJV96]: Design Patterns: Elements of Reusable Object-Oriented Software, Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides, Addison-Wesley, 1996.
 
