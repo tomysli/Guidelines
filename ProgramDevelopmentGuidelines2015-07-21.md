@@ -646,7 +646,7 @@ The article by Roy Osherove also discussed how to name variables in test method 
 
 [^Knu74]: Donald E. Knuth, “Computer programming as an art”, ACM, 1974. [link](https://dl.acm.org/doi/10.1145/361604.361612)
 
-[^Kum14]: 7 Popular Unit Test Naming Conventions, Ajitesh Kumar, 2014. [link](http://java.dzone.com/articles/7-popular-unit-test-naming)
+[^Kum14]: 7 Popular Unit Test Naming Conventions, Ajitesh Kumar, 2014. [link](https://dzone.com/articles/7-popular-unit-test-naming)
 
 [^KP99]: The Practice of Programming, Brian W. Kernighan, Rob Pike, Addison-Wesley, 1999.
 
@@ -654,7 +654,7 @@ The article by Roy Osherove also discussed how to name variables in test method 
 
 [^Mar09]: Clean Code: A Handbook of Agile Software Craftsmanship, Robert C. Martin, Pearson Education, 2009.
 
-[^Osh05]: Naming standards for unit tests, Roy Osherove, 2005. [link](http://osherove.com/blog/2005/4/3/naming-standards-for-unit-tests.html)
+[^Osh05]: Naming standards for unit tests, Roy Osherove, 2005. [link](https://osherove.com/blog/2005/4/3/naming-standards-for-unit-tests.html)
 
-[^SOLID]: Wikipedia, 2014-12-19. [link](http://en.wikipedia.org/wiki/SOLID_%28object-oriented_design%29)
+[^SOLID]: Wikipedia, 2014-12-19. [link](https://en.wikipedia.org/wiki/SOLID)
 
