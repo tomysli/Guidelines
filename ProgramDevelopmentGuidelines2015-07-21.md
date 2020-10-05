@@ -554,6 +554,22 @@ Source [^KP99], p.119.
 
 
 
+## C7 - Crash Early
+
+You might have seen this trick to avoid `NullPointerException` (NPE) already, using `"s".equals(s)` instead `s.equals("s")`, when the variable `s` is `null`, the former one returns `false`, the later one throws a NPE. The problems are, does a `null` value violate the preconditions? And is false a sensible default value for the situation? You could convince yourself that the variable `s` can’t be `null`, and choose to ignore it. However, as states by Murphy’s Law:
+
+> Anything that can go wrong, will go wrong.
+
+I have once witness some restricted resources have been opened for booking for more than two months, due to a misconfiguration, and the program logic ignore the null value so that a nonsensible default returns that permit the booking.
+
+> One of the benefits of detecting problems as soon as you can is that you can crash earlier. And **many times, crashing your program is the best thing you can do. The alternative may be to continue, writing corrupted data to some vital database** or commanding the washing machine into its twentieth consecutive spin cycle. The Java language and libraries have embraced this philosophy. When something unexpected happens within the runtime system, it throws a `RuntimeException`. If not caught, this will percolate up to the top level of the program and cause it to halt, displaying a stack trace.
+
+Source [^HT99]
+
+If the mentioned booking program logic throws an exception when it encounters an unexpected `null`, yes, someone might get blamed, but the blamed could be much easier to handle.
+
+
+
 
 
 ## References:
