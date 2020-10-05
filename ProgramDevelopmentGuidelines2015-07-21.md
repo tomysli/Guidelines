@@ -159,6 +159,112 @@ For more about when not to apply this principle, see OCP in the section “D5 Be
 
 
 
+## D5 - Be SOLID
+
+SOLID is a mnemonic acronym introduced by Michael Feathers [^SOLID] for the “first five principles” named by Robert C. Martin. The principles are Single Responsibility Principle (SRP), Open-Closed Principle (OCP), Liskov Substitution Principle (LSP), Dependency-Inversion Principle (DIP), and Interface-Segregation Principle (ISP). Martin dedicates 5 chapters, one chapter for each principle in his Jolt Award-winning book *Agile Software Development: Principles, Patterns and Practices*. [^Mar03]
+
+
+
+**Single Responsibility Principle (SRP)**
+
+SRP requires that a class should have only one responsibility (reason to change). For example, if a class contains both business rules and persistence control, it has two responsibilities, hence violating the SRP.
+
+
+
+**Open-Closed Principle (OCP)**
+
+OCP requires that software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification. In general it is an application of “programming to an interface, not an implementation”
+
+However, as Martin pointed out in his book:
+
+> ...**conforming to the OCP is expensive**. It takes development time and effort to create the appropriate abstractions. Those abstractions also increase the complexity of the software design. There is a limit to the amount of abstraction that that developers can afford. **Clearly, we want to limit the application of the OCP to changes that are likely**. How do we know which changes are likely? We do the **appropriate research**, we ask the **appropriate questions**, and we use our experience and common sense. And after all that, we **wait until the changes happen!**
+
+Source [^Mar03] p.105
+
+> …apply abstraction only to those parts of the program that exhibit frequent change. **Resisting premature abstraction is as important as abstraction itself**.
+
+Source [^Mar03] pp.108-109
+
+
+
+**Liskov Substitution Principle (LSP)**
+
+LSP requires that subtypes must be substitutable for their base types.
+
+> Violating the LSP often results in the use of Run-Time Type Information (RTTI) in a manner that grossly
+> violates the OCP. Frequently, an explicit if statement of if/else chain is used to determine the type of an
+> object so that the behavior appropriate to that type can be selected,
+
+Source [^Mar03] p.112
+
+The following listing shows how LSP is violated:
+
+```java
+void drawShape(Shape shape) {
+  if (shape instanceof Square)
+    ((Square) shape).draw();
+  else if (shape instanceof Circle)
+    ((Circle) shape).draw();
+}
+```
+
+The `drawShape()` violates OCP because it must be changed whenever new derivatives of Shape are created.
+
+
+
+**Dependency-Inversion Principle (DIP)**
+
+DIP requires that
+
+a. High-level modules should not depend on low-level modules. Both should depend on abstractions.
+
+b. Abstractions should not depend on details. Details should depend on abstractions.
+
+
+
+In short it is also an application of “programming to an interface, not an implementation”; consider the following solution that violates the DIP:
+
+![](dip_1.png)
+
+The following is a solution that conform to the DIP, a high-level module (Button) depends on an abstraction (ButtonServer), and detail (Lamp) depends on an abstraction:
+
+![](dip_2.png)
+
+Similarly to OCP, “resisting premature abstraction” heuristic applies.
+
+
+
+**Interface-Segregation Principle (ISP)**
+
+ISP deals with the **disadvantages of “fat” interfaces**, it requires that **clients should not be forced to depend on methods that they do not use**. In other words, the “fat” interfaces can be broken up into groups of methods, each group serves a different set of clients.
+
+The following diagram shows a “fat” interface:
+
+![](isp_1.png)
+
+With ISP applied:
+
+![](isp_2.png)
+
+However, Martin also points out in his book:
+
+> **As with all principles, care must be taken not to overdo it**. The spectre of a class with hundreds of different interfaces, some segregated by client and others segregated by version, would be frightening indeed.
+
+Source [^Mar03] p.145
+
+Martin was kind enough to put the articles (not exactly the same but very similar to those in his book) in the Object Mentor web site, check them out:
+
+http://www.objectmentor.com/resources/articles/srp.pdf
+
+http://www.objectmentor.com/resources/articles/ocp.pdf
+
+http://www.objectmentor.com/resources/articles/lsp.pdf
+
+http://www.objectmentor.com/resources/articles/isp.pdf
+
+http://www.objectmentor.com/resources/articles/dip.pdf
+
+
 
 
 
@@ -174,3 +280,6 @@ For more about when not to apply this principle, see OCP in the section “D5 Be
 
 [^GHJV96]: Design Patterns: Elements of Reusable Object-Oriented Software, Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides, Addison-Wesley, 1996.
 
+[^Mar03]: Agile Software Development: Principles, Patterns and Practices, Robert C. Martin, Pearson Education, 2003.
+
+[^SOLID]: Wikipedia, 2014-12-19. [link](http://en.wikipedia.org/wiki/SOLID_%28object-oriented_design%29)
