@@ -266,6 +266,38 @@ http://www.objectmentor.com/resources/articles/dip.pdf
 
 
 
+## D6 - Premature optimization is the root of all evil
+
+**Needless complexity reduce maintainability**
+
+To quote from *Computer programming as an art* by Donald E. Knuth:
+
+> Another important aspect of program quality is the efficiency with which the computer's resources are actually being used. I am sorry to say that many people nowadays are condemning program efficiency, telling us that it is in bad taste. The reason for this is that we are now experiencing a reaction from the time when efficiency was the only reputable criterion of goodness, and programmers in the past have tended to be so preoccupied with efficiency that they have produced **needlessly complicated code**; the result of this unnecessary complexity has been that **net efficiency has gone down, due to difficulties of debugging and maintenance**. The real problem is that programmers have spent far too much time worrying about efficiency in the wrong places and at the wrong times; **premature optimization is the root of all evil** (or at least most of it) in programming.
+
+Source [^Knu74] p.671.
+
+
+
+Dijkstra put it in this way:
+
+> My refusal to **regard efficiency considerations as the programmer's prime concern** is not meant to imply that I disregard them. On the contrary, efficiency considerations are recognized as one of the main incentives to modifying a logically correct program. My point, however, is that **we can only afford to optimize** (whatever that may be) **provided that the program remains sufficiently manageable**.
+
+Source [^Dij70] p.7.
+
+
+
+**Not an excuse for making bad choices**
+
+Don’t use it as an excuse to
+
+> defend all sorts of choices, ranging from poor architectures, to gratuitous memory allocations, to inappropriate choices of data structures and algorithms, to complete disregard for variable latency in latency-sensitive situations.
+
+Source [^Duf10]
+
+However, think twice when you are going to spend a few hours or so to do an optimization.
+
+
+
 
 
 ## References:
@@ -274,11 +306,15 @@ http://www.objectmentor.com/resources/articles/dip.pdf
 
 [^DHLMRR08]: Robertson, Adrenaline Junkies and Template Zombies: Understanding Patterns of Project Behavior, Tom DeMarco, Peter Hruschka, Tim Lister, Steve McMenamin, James Robertson, Suzanne Dorset House, 2008.
 
-[^Dij70]: The 'premature optimization is evil' myth, Joe Duffy, 2010. [link](http://joeduffyblog.com/2010/09/06/the-premature-optimization-is-evil-myth/)
+[^Dij70]: Notes on Structured Programming (Second Edition), Edsger W. Dijkstra, 1972. [link](https://www.cs.utexas.edu/users/EWD/ewd02xx/EWD249.PDF)
+
+[^Duf10]: The 'premature optimization is evil' myth, Joe Duffy, 2010. [link](http://joeduffyblog.com/2010/09/06/the-premature-optimization-is-evil-myth/)
 
 [^FBBOR99]: Refactoring: Improving the Design of Existing Code, Martin Fowler et al., Addison-Wesley, 1999
 
 [^GHJV96]: Design Patterns: Elements of Reusable Object-Oriented Software, Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides, Addison-Wesley, 1996.
+
+[^Knu74]: Donald E. Knuth, “Computer programming as an art”, ACM, 1974. [link](https://dl.acm.org/doi/10.1145/361604.361612)
 
 [^Mar03]: Agile Software Development: Principles, Patterns and Practices, Robert C. Martin, Pearson Education, 2003.
 
