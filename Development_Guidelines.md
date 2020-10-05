@@ -241,7 +241,7 @@ The `drawShape()` violates OCP because it must be changed whenever new derivativ
 
 **Dependency-Inversion Principle (DIP)**
 
-DIP requires that
+DIP requires that:
 
 a. High-level modules should not depend on low-level modules. Both should depend on abstractions.
 
@@ -249,23 +249,23 @@ b. Abstractions should not depend on details. Details should depend on abstracti
 
 
 
-In short it is also an application of “programming to an interface, not an implementation”; consider the following solution that violates the DIP:
+If you look more closely it is an application of "programming to an interface, not an implementation"; consider the following solution that violates the DIP:
 
-![](dip_1.png)
+![no DIP](dip_1.png)
 
 The following is a solution that conform to the DIP, a high-level module (Button) depends on an abstraction (ButtonServer), and detail (Lamp) depends on an abstraction:
 
-![](dip_2.png)
+![DIP applied](dip_2.png)
 
-Similarly to OCP, “resisting premature abstraction” heuristic applies.
+Similarly to OCP, the "resisting premature abstraction" heuristic applies.
 
 
 
 **Interface-Segregation Principle (ISP)**
 
-ISP deals with the **disadvantages of “fat” interfaces**, it requires that **clients should not be forced to depend on methods that they do not use**. In other words, the “fat” interfaces can be broken up into groups of methods, each group serves a different set of clients.
+ISP deals with the **disadvantages of "fat" interfaces**, it requires that **clients should not be forced to depend on methods that they do not use**. In other words, the “fat” interfaces can be broken up into groups of methods, each group serves a different set of clients.
 
-The following diagram shows a “fat” interface:
+The following diagram shows a "fat" interface:
 
 ![](isp_1.png)
 
@@ -273,11 +273,13 @@ With ISP applied:
 
 ![](isp_2.png)
 
-However, Martin also points out in his book:
+However, Martin also points out in his book (emphasis mine):
 
 > **As with all principles, care must be taken not to overdo it**. The spectre of a class with hundreds of different interfaces, some segregated by client and others segregated by version, would be frightening indeed.
 
 Source [^Mar03] p.145
+
+
 
 Martin was kind enough to put the articles (not exactly the same but very similar to those in his book) in the Object Mentor web site, check them out:
 
