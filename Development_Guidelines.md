@@ -18,7 +18,7 @@ The guildelines are grouped into three categories, read on for detail discussion
 
 ### Design
 
-D1 - Write code that communicate its purpose and intent
+D1 - Write code that communicate its purpose and intent (readability matters)
 
 D2 - Code Refactoring
 
@@ -64,16 +64,11 @@ T3 - Name the test methods with `[methodName]_SHOULD[_expected_behaviour]_WHEN[_
 
 
 
-## D1 - Write code that communicate its purpose and intent (readability)
-
-Bugs sneak in when code need to be changed without a complete and clear understanding, it happens
-when features were added to a piece of software by maintenance programmers (or author programmers
-in their “maintenance mode”) within a tight timeframe.
+## D1 - Write code that communicate its purpose and intent (readability matters)
 
 **Programs must be written for people to read**
 
-To some people who understand the craft of programming so well, programming is a way to
-communicate one’s thoughts through code:
+Programming is to communicate your thoughts through code, to some people who really understand the craft of programming, programming is a way to communicate one’s thoughts through code:
 
 > Our design of this introductory computer-science subject reflects two major concerns. First, we want to establish the idea that a computer language is not just a way of getting a computer to perform operations but rather that it is a **novel formal medium for expressing ideas about methodology**. Thus, **programs must be written for people to read**, and only incidentally for machines to execute. Second, we believe that the essential material to be addressed by a subject at this level is not the syntax of particular programming-language constructs, nor clever algorithms for computing particular functions efficiently, nor even the mathematical analysis of algorithms and the foundations of computing, but rather the **techniques** used to control the **intellectual complexity** of **large software systems**.
 >
