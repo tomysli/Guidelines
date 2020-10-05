@@ -121,7 +121,7 @@ To quote the original sermon on structured programming by Edsger Dijkstra:
 **Good designs are easy to test and difficult to mess up**
 
 Tom DeMarco et al put their insight about software design improvement in *Adrenaline Junkies and*
-*Template Zombies: Understanding Patterns of Project Behavior* [^DHLMRR08]:
+*Template Zombies: Understanding Patterns of Project Behavior* [^DHLMRR08] (emphasis mine):
 
 > …be capable and willing to look in detail at your people’s designs, and be aware enough to see quality when it’s there. Doing this for even the shortest time will quickly convince you that the gold-plating argument is a red herring; no design is made better in any way by piling on added features or glitz. Rather, **what enhances a design’s aesthetic is what is taken away**. The best designs are typically
 > spare and precisely functional, **easy to test and difficult to mess up when changes are required**. Moreover, they make you feel that there could be no better way to achieve the product’s assigned functionality.
@@ -130,11 +130,17 @@ Tom DeMarco et al put their insight about software design improvement in *Adrena
 
 ## D3 - Favor object composition over class inheritance
 
-This is an excerpt from Design Patterns: Elements of Reusable Object-Oriented Software, [^GHJV96] pp.19-20:
+This is an excerpt from *Design Patterns: Elements of Reusable Object-Oriented Software*, [^GHJV96] pp.19-20 (emphasis mine):
 
 > **Inheritance breaks encapsulation**
 >
-> But class inheritance has some disadvantages too. First, you can't change the implementations inherited from parent classes at run-time, because inheritance is defined at compile-time. Second, and generally worse, parent classes often define at least part of their subclasses' physical representation. Because inheritance exposes a subclass to details of its parent's implementation, **it's often said that "inheritance breaks encapsulation". The implementation of a subclass becomes so bound up with the implementation of its parent class that any change in the parent's implementation will for the subclass to change**.
+> The two most common techniques for reusing functionality in object-oriented systems are class inheritance and object composition. As we've explained class inheritance lets you define the implementation of one class in terms of another's. Reuse by subclassing is often referred to as white-box reuse. The term white-box refers to visibility: with inheritance, the **internals of parent classes are often visible** to subclasses.
+>
+> Object composition is an alternative to class inheritance. Here, new functionality is obtained by assembling or composing objects to get more complex functionality. Object composition requires that the objects being composed have **well-defined interfaces**. This style of reuse is called black-box reuse, because no internal details of objects are visible. Objects appear only as black boxes.
+>
+> Inheritance and composition each have their advantages and disadvantages. Class inheritance is defined statically at compile-time and is straight-forward to use, since it's supported directly by the programming language. Class inheritance also makes it easier to modify the implementation being reused. When a subclass overrides some but not all operations, it can affect the operations it inherits as well, assuming they call the overridden operations.
+>
+> But class **inheritance has some disadvantages** too. First, you can't change the implementations inherited from parent classes at run-time, because inheritance is defined at compile-time. Second, and generally worse, parent classes often define at least part of their subclasses' physical representation. Because inheritance exposes a subclass to details of its parent's implementation, **it's often said that "inheritance breaks encapsulation". The implementation of a subclass becomes so bound up with the implementation of its parent class that any change in the parent's implementation will for the subclass to change**.
 >
 > Implementation dependencies can cause problems when you're trying to reuse a subclass. Should any aspect of the inherited implementation not be appropriate for the new problem domains, the parent class must be rewritten or replaced by something more appropriate. This dependency **limits flexibility and ultimately reusability**. One cure for this is to inherit only from abstract classes, since they usually provide little or no implementation.
 >
@@ -149,12 +155,12 @@ This is an excerpt from Design Patterns: Elements of Reusable Object-Oriented So
 >
 > Ideally you shouldn't have to create new components to achieve reuse. You should be able to get all the functionality you need by assembling existing components through object composition. But this is rarely the case, because the set of available components is never quite rich enough in practice. Reuse by inheritance makes it easier to make new components that can be composed with old ones. Inheritance and object composition thus work together.
 >
-> 
->
-> **Beware of overusing inheritance**
->
-> Nevertheless, our experience is that designers **overuse inheritance as a reuse technique** and designs
-> are often made more reusable (and simpler) by depending more on object composition.
+
+
+
+**Beware of overusing inheritance**
+
+> Nevertheless, our experience is that designers **overuse inheritance as a reuse technique** and designs are often made more reusable (and simpler) by depending more on object composition.
 
 
 
