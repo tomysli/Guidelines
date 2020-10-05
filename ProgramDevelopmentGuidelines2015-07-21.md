@@ -444,6 +444,36 @@ pp.104-105.
 
 
 
+## C4 - Use unchecked exceptions
+
+Problems with checked exceptions are **versioning and scalability issues**, and **breaking encapsulation**.
+
+
+
+**Checked exceptions lead to versioning and scalability issues**
+
+The following is an excerpt from *The Trouble with Checked Exception* [^Hej03], a conversation with
+Anders Hejlsberg, who led the team that designed the C# language.
+
+>Let's start with versioning, because the issues are pretty easy to see there. Let's say I create a method foo that declares it throws exceptions A, B, and C. In version two of foo, I want to add a bunch of features, and now foo might throw exception D. It is a breaking change for me to add D to the throws clause of that method, because existing caller of that method will almost certainly not handle that exception. **Adding a new exception to a throws clause in a new version breaks client code**. It's like adding a method to an interface. After you publish an interface, it is for all practical purposes immutable, because any implementation of it might have the methods that you want to add in the next version. So you've got to create a new interface instead. Similarly with exceptions, you would either have to create a whole new method called foo2 that throws more exceptions, or you would have to catch exception D in the new foo, and transform the D into an A, B, or C.
+>
+>The scalability issue is somewhat related to the versionability issue. In the small, checked exceptions are very enticing. With a little example, you can show that you've actually checked that you caught the `FileNotFoundException`, and isn't that great? Well, that's fine when you're just calling one API. The trouble begins when you start building big systems where you're talking to four or five different subsystems. Each subsystem throws four to ten exceptions. Now, each time you walk up the ladder of aggregation, you have this exponential hierarchy below you of exceptions you have to deal with. You end up having to declare 40 exceptions that you might throw. **And once you aggregate that with another subsystem you've got 80 exceptions in your throws clause. It just balloons out of control**.
+>
+>In the large, **checked exceptions become such an irritation that people completely circumvent the feature**. They either say, "throws Exception," everywhere; or—and I can't tell you how many times I've seen this—they say, "try, da da da da da, catch curly curly." They think, "Oh I'll come back and deal with these empty catch clauses later," and then of course they never do. In those situations, **checked exceptions have actually degraded the quality of the system in the large**.
+
+
+
+**Checked exceptions break encapsulation**
+
+The following is an excerpt from *Clean Code: A Handbook of Agile Software Craftsmanship*, [^Mar09]
+pp.106-107.
+
+> The debate is over. For years Java programmers have debated over the benefits and liabilities of checked exceptions. When checked exceptions were introduced in the first version of Java, they seemed like a great idea. The signature of every method would list all of the exceptions that it could pass to its caller. Moreover, these exceptions were part of the type of the method. Your code literally wouldn’t compile if the signature didn’t match what your code could do. At the time, we thought that checked exceptions were a great idea; and yes, they can yield some benefit. However, it is clear now that they aren’t necessary for the production of robust software. **C# doesn’t have checked exceptions, and despite valiant attempts, C++ doesn’t either. Neither do Python or Ruby. Yet it is possible to write robust software in all of these languages. Because that is the case, we have to decide—really—whether checked exceptions are worth their price**.
+>
+> What price? **The price of checked exceptions is an Open-Closed Principle violation**. If you throw a checked exception from a method in your code and the catch is three levels above, you must declare that exception in the signature of each method between you and the catch. This means that **a change at a low level of the software can force signature changes on many higher levels**. The changed modules must be rebuilt and redeployed, even though nothing they care about changed. Consider the calling hierarchy of a large system. Functions at the top call functions below them, which call more functions below them, ad infinitum. Now let’s say one of the lowest level functions is modified in such a way that it must throw an exception. If that exception is checked, then the function signature must add a throws clause. But this means that every function that calls our modified function must also be modified either to catch the new exception or to append the appropriate throws clause to its signature. Ad infinitum. The net result is a cascade of changes that work their way from the lowest levels of the software to the highest! **Encapsulation is broken because all functions in the path of a throw must know about details of that low-level exception**. Given that the purpose of exceptions is to allow you to handle errors at a distance, it is a shame that checked exceptions break encapsulation in this way. Checked exceptions can sometimes be useful if you are writing a critical library: You must catch them. But in general application development the dependency costs outweigh the benefits.
+
+
+
 
 
 ## References:
