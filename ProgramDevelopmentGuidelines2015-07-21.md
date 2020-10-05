@@ -48,7 +48,7 @@ T1 - Test everything that could possibly break (but NOT trivial accessors)
 
 T2 - Put the test class in the same package as the class under test, in a `test` folder
 
-T3 - Name the test methods with `[methodName]_Should[_expected_behaviour]_When[_state_under_test]`
+T3 - Name the test methods with `[methodName]_SHOULD[_expected_behaviour]_WHEN[_state_under_test]`
 
 ---
 
@@ -595,6 +595,17 @@ Source [^JUnit FAQ]
 > Usually, developers unit test the code using the main method or by executing the application. Neither of them is the correct approach. **Mixing up production code with tests is not a good practice. It creates a code maintainability problem**. The best approach is to create a separate source folder for unit tests and put the test class in the same package as the main class. Usually, if a class name is `TaxCalculator`, its test should have the name `TaxCalculatorTest`.
 
 Source [^Ach13] p.8.
+
+
+
+## T3 - Name the test methods with `[methodName]_SHOULD[_expected_behaviour]_WHEN[_state_under_test]`
+
+In JUnit 3, due to the lack of `@Test`, test methods have to prefix with "Test". However in JUnit 4 with `@Test` you can name the test methods with anything.
+
+Many test methods naming conventions were invented [^Osh05] [^Kum14], the common goal is to communicate the intent. Here are some examples: `enquiry_SHOULD_log_request_WHEN_invoked`, `enquiry_SHOULD_split_multiple_venue_codes_delimited_by_comma_WHEN_response_code_success_returned`, `enquiry_SHOULD_rethrow_exception_WHEN_exception_from_cmbcsCore_caught`.
+
+The article by Roy Osherove also discussed how to name variables in test method to make it more
+readable. [^Osh05]
 
 
 
