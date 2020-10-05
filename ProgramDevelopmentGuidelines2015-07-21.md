@@ -16,7 +16,7 @@ D2 - Code Refactoring
 
 D3 - Favor object composition over class inheritance
 
-D4 - Programming to an interface, not an implementation (but DON't overdo it)
+D4 - Programming to an interface, not an implementation (but DON'T overdo it)
 
 D5 - Be SOLID (**S**ingle responsibility, **O**pen-closed, **L**iskov substitution, **I**nterface segregation, and **D**ependency inversion)
 
