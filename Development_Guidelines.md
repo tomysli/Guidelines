@@ -1,4 +1,4 @@
-# Program Development Guidelines
+# Software Development Guidelines
 
 > Quality comes not from inspection, but from improvement of the production process.
 
@@ -8,9 +8,17 @@
 
 ---
 
+
+
+## TLDR
+
+The guildelines are grouped into three categories, read on for detail discussions.
+
+
+
 ### Design
 
-D1 - Write code that communicate its purpose and intent (readability)
+D1 - Write code that communicate its purpose and intent
 
 D2 - Code Refactoring
 
@@ -24,7 +32,7 @@ D6 - Premature optimization is the root of all evil
 
 
 
-## Coding
+### Coding
 
 C1 - Use intention-revealing names
 
@@ -42,13 +50,15 @@ C7 - Crash early
 
 
 
-## Testing
+### Testing
 
 T1 - Test everything that could possibly break (but NOT trivial accessors)
 
 T2 - Put the test class in the same package as the class under test, in a `test` folder
 
 T3 - Name the test methods with `[methodName]_SHOULD[_expected_behaviour]_WHEN[_state_under_test]`
+
+
 
 ---
 
