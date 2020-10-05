@@ -544,6 +544,16 @@ The following is an excerpt from *Clean Code: A Handbook of Agile Software Craft
 
 
 
+## C6 - Prefer (and keep) debugging log messages to use of debuggers
+
+Ideally, the program’s log messages should provide sufficient details for a programmer to deduce whether a program is working correctly when something wrong reported. If bugs were suspected, the log messages should provide sufficient details for a programmer to reproduce the bugs. Don’t get me wrong, it’s not saying we should put debug log all over the places, nor put them into `System.out.println()` so that the message only send to console and vanish after the program terminated.
+
+> As a personal choice, we tend **not to use debuggers beyond getting a stack trace or the value of a variable or two**. One reason is that it is easy to get lost in details of complicated data structures and control flow; we find stepping through a program less productive than thinking harder and adding **output statements and self-checking code at critical places**. Clicking over statements takes longer than scanning the output of judiciously-placed displays. It takes less time to decide where to put print statements than to single-step to the critical section of code, even assuming we know where that is. More important, **debugging statements stay with the program; debugger sessions are transient**.
+
+Source [^KP99], p.119.
+
+
+
 
 
 ## References:
