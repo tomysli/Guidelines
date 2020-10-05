@@ -588,7 +588,7 @@ The following is an excerpt from *Extreme Programming Installed*, [^JAH00] p.267
 
 > You can place your tests in the same package and directory as the classes under test. These approaches allow the tests to access to all the public and package visible methods of the classes under test. Some developers have argued in favor of putting the tests in a sub-package of the classes under test (e.g. com.xyz.test). The author of this FAQ sees no clear advantage to adopting this approach and believes that said developers also put their curly braces on the wrong line. :-)
 
-Source [^JUnit FAQ]
+Source [^JUnitFAQ]
 
 
 
@@ -613,6 +613,8 @@ readable. [^Osh05]
 
 ## References:
 
+[^Ach13]: Test-Driven Development with Mockito, Sujoy Acharya, Packt Publishing, 2013.
+
 [^AS96]: Structure and Interpretation of Computer Programs (Second Edition), Harold Abelson and Gerald Jay Sussman with Julie Sussman, The MIT Press, 1996. [link](http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-7.html#%_chap_Temp_4)
 
 [^DHLMRR08]: Robertson, Adrenaline Junkies and Template Zombies: Understanding Patterns of Project Behavior, Tom DeMarco, Peter Hruschka, Tim Lister, Steve McMenamin, James Robertson, Suzanne Dorset House, 2008.
@@ -625,10 +627,29 @@ readable. [^Osh05]
 
 [^GHJV96]: Design Patterns: Elements of Reusable Object-Oriented Software, Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides, Addison-Wesley, 1996.
 
+[^Hej03]: The Trouble with Checked Exception, Anders Hejlsberg, 2003. [link](http://www.artima.com/intv/handcuffs.html)
+
+[^Hoa09]: Null References: The Billion Dollar Mistake, Tony Hoare, 2009. [link](https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare/)
+
+[^HT99]: The Pragmatic Programmer: From Journeyman to Master, Andrew Hunt, David Thomas, Addison-Wesley, 1999.
+
+[^JAH00]: Extreme Programming Installed, Ron Jeffries, Ana Anderson, Chet Hendrickson, Addison-Wesley, 2000.
+
+[^JUnitFAQ]: http://junit.org/faq.html
+
+[^KentBeck]: Wikipedia, 2014-12-19. [link](http://en.wikipedia.org/wiki/Kent_Beck)
+
 [^Knu74]: Donald E. Knuth, “Computer programming as an art”, ACM, 1974. [link](https://dl.acm.org/doi/10.1145/361604.361612)
+
+[^Kum14]: 7 Popular Unit Test Naming Conventions, Ajitesh Kumar, 2014. [link](http://java.dzone.com/articles/7-popular-unit-test-naming)
+
+[^KP99]: The Practice of Programming, Brian W. Kernighan, Rob Pike, Addison-Wesley, 1999.
 
 [^Mar03]: Agile Software Development: Principles, Patterns and Practices, Robert C. Martin, Pearson Education, 2003.
 
 [^Mar09]: Clean Code: A Handbook of Agile Software Craftsmanship, Robert C. Martin, Pearson Education, 2009.
 
+[^Osh05]: Naming standards for unit tests, Roy Osherove, 2005. [link](http://osherove.com/blog/2005/4/3/naming-standards-for-unit-tests.html)
+
 [^SOLID]: Wikipedia, 2014-12-19. [link](http://en.wikipedia.org/wiki/SOLID_%28object-oriented_design%29)
+
