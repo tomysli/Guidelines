@@ -20,7 +20,7 @@ The guildelines are grouped into three categories, read on for detail discussion
 
 D1 - Write code that communicate its purpose and intent (readability matters)
 
-D2 - Code Refactoring
+D2 - Refactoring (improving the design)
 
 D3 - Favor object composition over class inheritance
 
@@ -93,26 +93,30 @@ Source: [^FBBOR99] p.15.
 
 
 
-## D2 - Code Refactoring
+## D2 - Refactoring (improve the design)
 
 To quote the original sermon on structured programming by Edsger Dijkstra:
 
-> The extent to which the program correctness can be established is not purely a function or the program's external specifications and behavior but depends critically on its internal structure.
+> The extent to which the **program correctness** can be established is not purely a function or the program's external specifications and behavior but **depends critically on its internal structure**.
 
-Source [^Dij70] p.5
+(emphasis mine), source [^Dij70] p.5
+
+
 
 **Refactor the code to make program easier to read and therefore easier to maintain**
 
-> Refactoring is the process of changing a software system in such a way that it does not alter the external behavior of the code yet **improves its internal structure**. It is a disciplined way to clean up code that **minimizes the chances of introducing bugs**. In essence when you refactor you are **improving the design of the code after it has been written**.
-
+> Refactoring is the process of changing a software system in such a way that it does not alter the external behavior of the code yet improves its internal structure. It is a disciplined way to clean up code that **minimizes the chances of introducing bugs**. In essence when you refactor you are **improving the design** of the code after it has been written.
+>
 > "Improving the design after it has been written." That's an odd turn of phrase. In our **current understanding of software development we believe that we design and then we code**. A good design comes first, and the coding comes second. Over time the code will be modified, and the integrity of the system, its structure according to that design, gradually fades. The code **slowly sinks from engineering to hacking**.
-
+>
 > Refactoring is the opposite of this practice. With refactoring you can take a bad design, chaos even, and rework it into well-designed code. Each step is simple, even simplistic. You move a field from one class to another, pull some code out of a method to make into its own method, and push some code up or down a hierarchy. Yet the cumulative effect of these small changes can radically improve the design. It is the exact **reverse of the normal notion of software decay**.
-
+>
 > With refactoring you find the balance of work changes. You find that design, rather than occurring all up front, occurs continuously during development. You learn from building the system how to improve the design. The resulting interaction leads to a program with a design that stays good as development
 > continues.
 
-From the preface of *Refactoring: Improving the Design of Existing Code* [^FBORR99]
+(emphasis mine), from the preface of *Refactoring: Improving the Design of Existing Code* [^FBORR99]
+
+
 
 **Good designs are easy to test and difficult to mess up**
 
