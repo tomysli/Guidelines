@@ -584,6 +584,20 @@ The following is an excerpt from *Extreme Programming Installed*, [^JAH00] p.267
 
 
 
+## T2 - Put the test class in the same package as the class under test, in a “test” folder
+
+> You can place your tests in the same package and directory as the classes under test. These approaches allow the tests to access to all the public and package visible methods of the classes under test. Some developers have argued in favor of putting the tests in a sub-package of the classes under test (e.g. com.xyz.test). The author of this FAQ sees no clear advantage to adopting this approach and believes that said developers also put their curly braces on the wrong line. :-)
+
+Source [^JUnit FAQ]
+
+
+
+> Usually, developers unit test the code using the main method or by executing the application. Neither of them is the correct approach. **Mixing up production code with tests is not a good practice. It creates a code maintainability problem**. The best approach is to create a separate source folder for unit tests and put the test class in the same package as the main class. Usually, if a class name is `TaxCalculator`, its test should have the name `TaxCalculatorTest`.
+
+Source [^Ach13] p.8.
+
+
+
 
 
 ## References:
