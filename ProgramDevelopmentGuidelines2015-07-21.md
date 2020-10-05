@@ -556,7 +556,7 @@ Source [^KP99], p.119.
 
 ## C7 - Crash Early
 
-You might have seen this trick to avoid `NullPointerException` (NPE) already, using `"s".equals(s)` instead `s.equals("s")`, when the variable `s` is `null`, the former one returns `false`, the later one throws a NPE. The problems are, does a `null` value violate the preconditions? And is false a sensible default value for the situation? You could convince yourself that the variable `s` can’t be `null`, and choose to ignore it. However, as states by Murphy’s Law:
+You might have seen this trick to avoid `NullPointerException` (NPE) already, using `"s".equals(s)` instead of `s.equals("s")`, when the variable `s` is `null`, the former one returns `false`, the later one throws a NPE. The problems are, does a `null` value violate the preconditions? And is false a sensible default value for the situation? You could convince yourself that the variable `s` can’t be `null`, and choose to ignore it. However, as states by Murphy’s Law:
 
 > Anything that can go wrong, will go wrong.
 
@@ -567,6 +567,20 @@ I have once witness some restricted resources have been opened for booking for m
 Source [^HT99]
 
 If the mentioned booking program logic throws an exception when it encounters an unexpected `null`, yes, someone might get blamed, but the blamed could be much easier to handle.
+
+
+
+## T1 - Test everything that could possibly break
+
+Let’s begin with a little bit history about the automated unit testing. The most popular automated unit testing framework for Java, JUnit, was written by Kent Beck, who is also the creator of the Extreme Programming (XP) and Test Driven Development (TDD) software development methodologies [^KentBeck]. XP suggested to "Test everything that could possibly break" [^JAH00]. However, this statement might have been taken too far, as setters and getters could possibly break, so that they should be tested.
+
+The following is an excerpt from *Extreme Programming Installed*, [^JAH00] p.267.
+
+>The rule is to **test everything that could possibly break. To save time, don’t test things that couldn’t possibly break**. There are more things that couldn’t possibly break than you might imagine.
+>
+>Start conservatively on identifying things not to test. Until you’re sure, test. But unit testing is “white box” testing. You look at the code when you write the test, and if the code can’t break – don’t test it.
+>
+>**Accessors can’t break. There’s no need to test them**. Unless, of course, you have a tendency to forget to write them, and no other test is going to find that they’re missing. But wait – if no other test is going to access them, they shouldn’t be there anyway. So probably you don’t need to test accessors.
 
 
 
