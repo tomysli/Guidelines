@@ -1,0 +1,1 @@
+The [Development Guidelines](Development_Guidelines.md) is a collection of design and coding practices.
